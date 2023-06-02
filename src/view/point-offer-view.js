@@ -1,45 +1,22 @@
-import BaseView from './base-view.js';
-import { createPointOfferView } from './templates/point-offer-template.js';
+import ComponentView, { html } from './component-view.js';
 
-/**
- * Представление оффера в точке маршрута
- */
-export default class PointOfferView extends BaseView {
+export default class PointOfferView extends ComponentView {
   constructor() {
-    super();
+    super(...arguments);
+
     this.classList.add('event__offer');
   }
 
   /**
    * @override
    */
-  createView() {
-    return createPointOfferView();
-  }
-
-  /**
-   * Устанавливает заголовок
-   * @param {string} title
-   */
-  setTitle(title) {
-    const view = this.querySelector('.event__offer-title');
-
-    view.textContent = title;
-
-    return this;
-  }
-
-  /**
-   * Устанавливает цену
-   * @param {number} price
-   */
-  setPrice(price) {
-    const view = this.querySelector('.event__offer-price');
-
-    view.textContent = String(price);
-
-    return this;
+  createTemplate(title, price) {
+    return html`
+      <span class="event__offer-title">${title}</span>
+      &plus;&euro;&nbsp;
+      <span class="event__offer-price">${price}</span>
+    `;
   }
 }
 
-customElements.define('trip-point-offer', PointOfferView);
+customElements.define(String(PointOfferView), PointOfferView);
