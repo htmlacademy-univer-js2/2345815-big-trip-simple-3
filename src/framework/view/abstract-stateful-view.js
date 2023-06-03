@@ -11,9 +11,7 @@ export default class AbstractStatefulView extends AbstractView {
    * Метод для обновления состояния и перерисовки элемента
    * @param {Object} update Объект с обновлённой частью состояния
    */
-
   updateElement = (update) => {
-
     if (!update) {
       return;
     }
@@ -21,32 +19,26 @@ export default class AbstractStatefulView extends AbstractView {
     this._setState(update);
 
     this.#rerenderElement();
-
   };
-
 
   /**
    * Метод для восстановления обработчиков после перерисовки элемента
    * @abstract
    */
-
   _restoreHandlers = () => {
     throw new Error('Abstract method not implemented: restoreHandlers');
   };
-
 
   /**
    * Метод для обновления состояния
    * @param {Object} update Объект с обновлённой частью состояния
    */
-
   _setState = (update) => {
     this._state = {...this._state, ...update};
   };
 
   /** Метод для перерисовки элемента */
   #rerenderElement = () => {
-
     const prevElement = this.element;
     const parent = prevElement.parentElement;
     this.removeElement();
@@ -56,6 +48,5 @@ export default class AbstractStatefulView extends AbstractView {
     parent.replaceChild(newElement, prevElement);
 
     this._restoreHandlers();
-
   };
-
+}
