@@ -20,12 +20,16 @@ export default class ApiService {
    * @param {Headers} [config.headers] Заголовки запроса
    * @returns {Promise<Response>}
    */
+
   _load = async ({
+
     url,
     method = 'GET',
     body = null,
     headers = new Headers(),
+
   }) => {
+
     headers.append('Authorization', this._authorization);
 
     const response = await fetch(
@@ -39,30 +43,37 @@ export default class ApiService {
     } catch (err) {
       ApiService.catchError(err);
     }
+
   };
+
 
   /**
    * Метод для обработки ответа
    * @param {Response} response Объект ответа
    * @returns {Promise<JSON>}
    */
+
   static parseResponse = (response) => response.json();
+
 
   /**
    * Метод для проверки ответа
    * @param {Response} response Объект ответа
    */
+
   static checkStatus = (response) => {
     if (!response.ok) {
       throw new Error(`${response.status}: ${response.statusText}`);
     }
   };
 
+
   /**
    * Метод для обработки ошибок
    * @param {Error} err Объект ошибки
    */
+
   static catchError = (err) => {
     throw err;
   };
-}
+
