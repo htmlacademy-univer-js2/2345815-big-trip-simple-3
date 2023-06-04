@@ -1,60 +1,58 @@
-import FilterPredicate from './enum/filter-predicate.js';
+import PredicateArrange from './enum/PredicateArrange.js';
+import ArrangeCompare from './enum/arrangeCompare.js';
 
-import Store from './store/store.js';
-import CollectionModel from './model/collection-model.js';
-import DataTableModel from './model/data-table-model.js';
-import ApplicationModel from './model/application-model.js';
+import StorageInfo from './store/storageInfo.js';
 
-import PointAdapter from './adapter/point-adapter.js';
-import DestinationAdapter from './adapter/destination-adapter.js';
-import OfferGroupAdapter from './adapter/offer-group-adapter.js';
+import ModalData from './model/modelData.js';
+import ModelInfo from './model/modelInfo.js';
+import appModel from './model/appModal.js';
 
-import FilterView from './view/filter-view.js';
-import SortView from './view/sort-view.js';
-import ListView from './view/list-view.js';
-import EditorView from './view/editor-view.js';
+import PointAdapter from './adapter/pointAdapter.js';
+import AdapterDestination from './adapter/adapterDestination.js';
+import OfferGroups from './adapter/offerGroups.js';
 
-import FilterPresenter from './presenter/filter-presenter.js';
-import SortPresenter from './presenter/sort-presenter.js';
-import ListPresenter from './presenter/list-presenter.js';
-import EditorPresenter from './presenter/editor-presenter.js';
-import PlaceholderPresenter from './presenter/placeholder-presenter.js';
-import CreateButtonPresenter from './presenter/create-button-presenter.js';
-import Mode from './enum/mode.js';
-import CreatorPresenter from './presenter/creator-presenter.js';
-import CreatorView from './view/creator-view.js';
-import SortPredicate from './enum/sort-predicate.js';
+import FilterView from './view/viewFilter.js';
+import SortView from './view/viewSorter.js';
+import ListView from './view/viewList.js';
+import CreateView from './view/createView.js';
+import EditorView from './view/editorView.js';
+
+import PresenterFilter from './presenter/presenterFilter.js';
+import PresenterArrange from './presenter/presenterArranger.js';
+import PresenterList from './presenter/presenterList.js';
+import PresenterEditor from './presenter/presenterEdit.js';
+import PresenterPlace from './presenter/presenterPlace.js';
+import PresenterCreatorButton from './presenter/presenterCreatorButton.js';
+import InitiatePresenter from './presenter/initiatePresenter.js';
+
 
 const BASE_URL = 'https://18.ecmascript.pages.academy/big-trip';
 const POINTS_URL = `${BASE_URL}/points`;
 const DESTINATIONS_URL = `${BASE_URL}/destinations`;
 const OFFERS_URL = `${BASE_URL}/offers`;
-const AUTH = 'Basic er1189jdzbdw';
+const AUTH = 'Basic er883jdzbdw';
 
-/** @type {Store<Point>} */
-const pointStore = new Store(POINTS_URL, AUTH);
 
-/** @type {Store<Destination>} */
-const destinationStore = new Store(DESTINATIONS_URL, AUTH);
+/** @type {StorageInfo<Point>} */
+const pointsStore = new StorageInfo(POINTS_URL, AUTH);
 
-/** @type {Store<OfferGroup>} */
-const offerStore = new Store(OFFERS_URL, AUTH);
+/** @type {StorageInfo<Destination>} */
+const destinationsStore = new StorageInfo(DESTINATIONS_URL, AUTH);
 
-const points = new DataTableModel(pointStore, (point) => new PointAdapter(point))
-  .setFilter(FilterPredicate.EVERYTHING)
-  .setSort(SortPredicate.DAY);
+/** @type {StorageInfo<OfferGroup>} */
+const offerGroupsStore = new StorageInfo(OFFERS_URL, AUTH);
 
-const destinations = new CollectionModel(
-  destinationStore,
-  (destination) => new DestinationAdapter(destination)
-);
 
-const offerGroups = new CollectionModel(
-  offerStore,
-  (offerGroup) => new OfferGroupAdapter(offerGroup)
-);
+const pointsModel = new ModelInfo(pointsStore, (item) => new PointAdapter(item))
+  .setFilter(PredicateArrange.EVERYTHING)
+  .setSort(ArrangeCompare.DAY);
 
-const applicationModel = new ApplicationModel(points, destinations, offerGroups);
+const destinationsModel = new ModalData(destinationsStore, (item) => new AdapterDestination(item));
+
+const offerGroupsModel = new ModalData(offerGroupsStore, (item) => new OfferGroups(item));
+
+const applicationModel = new appModel(pointsModel, destinationsModel, offerGroupsModel);
+
 
 /** @type {SortView} */
 const sortView = document.querySelector(String(SortView));
@@ -71,25 +69,16 @@ const createButtonView = document.querySelector('.trip-main__event-add-btn');
 /** @type {FilterView} */
 const filterView = document.querySelector(String(FilterView));
 
-const creatorView = new CreatorView().target(listView);
 
 applicationModel.ready().then(() => {
-  new FilterPresenter(applicationModel, filterView);
-  new SortPresenter(applicationModel, sortView);
-  new ListPresenter(applicationModel, listView);
-  new EditorPresenter(applicationModel, new EditorView());
-  new CreatorPresenter(applicationModel, creatorView);
-  new PlaceholderPresenter(applicationModel, placeholderView);
-  new CreateButtonPresenter(applicationModel, createButtonView);
-});
+  new PresenterFilter(applicationModel, filterView);
+  new PresenterArrange(applicationModel, sortView);
+  new PresenterList(applicationModel, listView);
+  new PresenterEditor(applicationModel, new EditorView());
+  new InitiatePresenter(applicationModel, new CreateView().target(listView));
+  new PresenterPlace(applicationModel, placeholderView);
+  new PresenterCreatorButton(applicationModel, createButtonView);
 
-const {group, groupEnd, trace} = console;
-
-applicationModel.addEventListener('mode', () => {
-  groupEnd();
-  group(Mode.findKey(applicationModel.getMode()));
-});
-
-applicationModel.points.addEventListener(['add', 'update', 'remove', 'filter', 'sort'], (event) => {
-  trace(event.type);
+}).catch((exception) => {
+  placeholderView.textContent = exception;
 });
