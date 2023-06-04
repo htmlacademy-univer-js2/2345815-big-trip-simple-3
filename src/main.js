@@ -29,7 +29,7 @@ import InitiatePresenter from './presenter/initiatePresenter.js';
 const BASE_URL = 'https://18.ecmascript.pages.academy/big-trip';
 const POINTS_URL = `${BASE_URL}/points`;
 const DESTINATIONS_URL = `${BASE_URL}/destinations`;
-const OFFERS_URL = `${BASE_URL}/offers`;
+const OFFERS_URL = `${ BASE_URL }/offers`;
 const AUTH = 'Basic er883jdzbdw';
 
 
