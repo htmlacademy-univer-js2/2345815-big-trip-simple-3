@@ -32,7 +32,6 @@ const DESTINATIONS_URL = `${BASE_URL}/destinations`;
 const OFFERS_URL = `${BASE_URL}/offers`;
 const AUTH = 'Basic er883jdzbdw';
 
-
 /** @type {StorageInfo<Point>} */
 const pointsStore = new StorageInfo(POINTS_URL, AUTH);
 
