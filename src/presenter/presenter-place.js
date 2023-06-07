@@ -1,5 +1,5 @@
-import DeleteEmpty from '../enum/deleteEmpty.js';
-import PredicateArrange from '../enum/PredicateArrange.js';
+import DeleteEmpty from '../enum/delete-empty.js';
+import PredicateArrange from '../enum/predicate-arrange.js';
 import Mode from '../enum/mode.js';
 import Presenter from './presenter.js';
 
@@ -22,7 +22,7 @@ export default class PresenterPlace extends Presenter {
       this.onPointsModelChange.bind(this)
     );
 
-    this.model.addEventListener('mode', this.onModelMode.bind(this));
+    this.model.addEventListener('mode', this.activeModelMode.bind(this));
   }
 
   updateView() {
@@ -38,7 +38,7 @@ export default class PresenterPlace extends Presenter {
     this.updateView();
   }
 
-  onModelMode() {
+  activeModelMode() {
     this.updateView();
   }
 }

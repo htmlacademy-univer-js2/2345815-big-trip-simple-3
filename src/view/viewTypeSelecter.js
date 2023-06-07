@@ -1,5 +1,5 @@
-import KeyInput from '../enum/keyInput.js';
-import ViewGroup, {html} from './viewGroup.js';
+import KeyInput from '../enum/key-input.js';
+import ViewGroup, {html} from './view-group.js';
 
 export default class ViewTypeSelector extends ViewGroup {
   constructor() {

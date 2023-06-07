@@ -1,13 +1,13 @@
-import SaveLabelButton from '../enum/saveLabelButtom.js';
+import SaveLabelButton from '../enum/save-label-buttom.js';
 import View, {html} from './view.js';
 import ViewTypeSelector from './viewTypeSelecter.js';
-import viewSelector from './viewSelector.js';
-import viewDate from './viewDate.js';
-import ViewPrice from './viewPrice.js';
-import ViewOfferSelected from './viewOfferSelector.js';
+import viewSelector from './view-selector.js';
+import viewDate from './view-date.js';
+import ViewPrice from './view-price.js';
+import ViewOfferSelected from './view-offer-selector.js';
 import DestinationView from './destinationView.js';
-import ViewLoader from './viewLoader.js';
-import KeyInput from '../enum/keyInput.js';
+import ViewLoader from './view-loader.js';
+import KeyInput from '../enum/key-input.js';
 
 /**
  * @implements {EventListenerObject}

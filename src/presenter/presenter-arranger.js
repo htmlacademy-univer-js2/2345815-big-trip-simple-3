@@ -1,8 +1,8 @@
-import ArrangeType from '../enum/arrangeType.js';
-import LabelArrange from '../enum/labelArrange.js';
-import DisableArrange from '../enum/disableArrange.js';
+import ArrangeType from '../enum/arrange-type.js';
+import LabelArrange from '../enum/label-arrange.js';
+import DisableArrange from '../enum/disable-arrange.js';
 import Presenter from './presenter.js';
-import ArrangeCompare from '../enum/arrangeCompare.js';
+import ArrangeCompare from '../enum/arrange-compare.js';
 import Mode from '../enum/mode.js';
 
 /**

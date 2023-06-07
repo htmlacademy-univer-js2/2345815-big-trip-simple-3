@@ -2,8 +2,8 @@ import {escape} from 'he';
 import { formatDate, formatTime, formatNumber } from '../format.js';
 
 import Mode from '../enum/mode.js';
-import PointType from '../enum/pointType.js';
-import PointLabel from '../enum/pointLabel.js';
+import PointType from '../enum/point-type.js';
+import PointLabel from '../enum/point-label.js';
 
 import Presenter from './presenter.js';
 

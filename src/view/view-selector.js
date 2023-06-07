@@ -1,6 +1,6 @@
 import './destination-select-view.css';
 
-import KeyInput from '../enum/keyInput';
+import KeyInput from '../enum/key-input';
 import View, {html} from './view.js';
 
 export default class ViewSelector extends View {

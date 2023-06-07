@@ -1,6 +1,6 @@
 import Mode from '../enum/mode.js';
-import InitiatePresenter from './initiatePresenter.js';
-import ViewPoint from '../view/viewPoint.js';
+import InitiatePresenter from './initiate-presenter.js';
+import ViewPoint from '../view/view-point.js';
 
 /**
  * @template {appModel} Model
@@ -11,16 +11,7 @@ export default class PresenterEditor extends InitiatePresenter {
   /**
    * @override
    */
-  saveActivePoint() {
-    const {activePoint} = this.model;
-
-    return this.model.pointsModel.update(activePoint.id, activePoint);
-  }
-
-  /**
-   * @override
-   */
-  onModelMode() {
+  activeModelMode() {
     this.point = this.model.activePoint;
 
     this.view.close(false);
@@ -31,6 +22,15 @@ export default class PresenterEditor extends InitiatePresenter {
       this.updateView();
       this.view.target(pointView).open();
     }
+  }
+
+  /**
+   * @override
+   */
+  saveActivePoint() {
+    const {activePoint} = this.model;
+
+    return this.model.pointsModel.update(activePoint.id, activePoint);
   }
 
   /**
