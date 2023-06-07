@@ -1,31 +1,29 @@
-<<<<<<< Updated upstream
-=======
-import PredicateArrange from './enum/predicate-arrange.js';
-import ArrangeCompare from './enum/arrange-compare.js';
+import PredicateArrange from './enum/PredicateArrange.js';
+import ArrangeCompare from './enum/arrangeCompare.js';
 
-import StorageInfo from './store/storage-info.js';
+import StorageInfo from './store/storageInfo.js';
 
-import ModalData from './model/model-data.js';
-import ModelInfo from './model/model-info.js';
-import appModel from './model/app-modal.js';
+import ModalData from './model/modelData.js';
+import ModelInfo from './model/modelInfo.js';
+import appModel from './model/appModal.js';
 
-import PointAdapter from './adapter/point-adapter.js';
-import AdapterDestination from './adapter/adapter-destination.js';
-import OfferGroups from './adapter/offer-groups.js';
+import PointAdapter from './adapter/pointAdapter.js';
+import AdapterDestination from './adapter/adapterDestination.js';
+import OfferGroups from './adapter/offerGroups.js';
 
-import FilterView from './view/view-filter.js';
-import SortView from './view/view-sorter.js';
-import ListView from './view/view-list.js';
-import CreateView from './view/create-view.js';
-import EditorView from './view/editor-View.js';
+import FilterView from './view/viewFilter.js';
+import SortView from './view/viewSorter.js';
+import ListView from './view/viewList.js';
+import CreateView from './view/createView.js';
+import EditorView from './view/editorView.js';
 
-import PresenterFilter from './presenter/presenter-Filter.js';
-import PresenterArrange from './presenter/presenter-arranger.js';
-import PresenterList from './presenter/presenter-List.js';
-import PresenterEditor from './presenter/presenter-edit.js';
-import PresenterPlace from './presenter/presenter-place.js';
-import PresenterCreatorButton from './presenter/presenter-creator-button.js';
-import InitiatePresenter from './presenter/initiate-presenter.js';
+import PresenterFilter from './presenter/presenterFilter.js';
+import PresenterArrange from './presenter/presenterArranger.js';
+import PresenterList from './presenter/presenterList.js';
+import PresenterEditor from './presenter/presenterEdit.js';
+import PresenterPlace from './presenter/presenterPlace.js';
+import PresenterCreatorButton from './presenter/presenterCreatorButton.js';
+import InitiatePresenter from './presenter/initiatePresenter.js';
 
 
 const BASE_URL = 'https://18.ecmascript.pages.academy/big-trip';
@@ -83,4 +81,3 @@ applicationModel.ready().then(() => {
 }).catch((exception) => {
   placeholderView.textContent = exception;
 });
->>>>>>> Stashed changes
