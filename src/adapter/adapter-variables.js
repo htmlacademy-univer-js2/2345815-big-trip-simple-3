@@ -1,7 +1,7 @@
 /** @typedef {import('./adapter').default} Adapter */
-/** @typedef {import('./pointAdapter').default} PointAdapter */
-/** @typedef {import('./adapterDestination').default} AdapterDestination */
-/** @typedef {import('./offerGroups').default} OfferGroups */
+/** @typedef {import('./point-adapter').default} PointAdapter */
+/** @typedef {import('./adapter-destination').default} AdapterDestination */
+/** @typedef {import('./offer-groups').default} OfferGroups */
 
 /**
  * @typedef Point

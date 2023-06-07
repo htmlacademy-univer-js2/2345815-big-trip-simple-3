@@ -1,4 +1,4 @@
-import ModalData from './modelData.js';
+import ModalData from './model-data.js';
 
 /**
  * @template Item

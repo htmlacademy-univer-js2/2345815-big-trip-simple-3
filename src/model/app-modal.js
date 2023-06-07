@@ -1,5 +1,5 @@
 import Mode from '../enum/mode.js';
-import PointType from '../enum/pointType.js';
+import PointType from '../enum/point-type.js';
 import Model from './model.js';
 
 export default class appModel extends Model {

@@ -2,12 +2,12 @@
 /** @typedef {import('flatpickr/dist/types/options').DateOption} CalendarDate */
 /** @typedef {import('flatpickr/dist/types/options').Options} CalendarOptions */
 
-/** @typedef {import('./viewFilter').default} FilterView */
-/** @typedef {import('./viewSorter').default} SortView */
-/** @typedef {import('./viewPoint').default} ViewPoint */
-/** @typedef {import('./editorView').default} EditorView */
-/** @typedef {import('./createView').default} CreateView */
-/** @typedef {import('./viewList').default} ListView */
+/** @typedef {import('./view-filter').default} FilterView */
+/** @typedef {import('./view-sorter').default} SortView */
+/** @typedef {import('./view-point').default} ViewPoint */
+/** @typedef {import('./editor-View').default} EditorView */
+/** @typedef {import('./create-view').default} CreateView */
+/** @typedef {import('./view-list').default} ListView */
 
 /**
  * @typedef PointState

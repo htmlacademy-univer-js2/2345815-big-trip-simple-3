@@ -1,11 +1,11 @@
 import {escape} from 'he';
 
 import Mode from '../enum/mode.js';
-import PointType from '../enum/pointType.js';
-import PointLabel from '../enum/pointLabel.js';
+import PointType from '../enum/point-type.js';
+import PointLabel from '../enum/point-label.js';
 
 import Presenter from './presenter.js';
-import viewDate from '../view/viewDate.js';
+import viewDate from '../view/view-date.js';
 
 viewDate.configure({
   'enableTime': true,
@@ -34,7 +34,7 @@ export default class InitiatePresenter extends Presenter {
     this.view.priceInputView.addEventListener('change', this.onPriceInputViewChange.bind(this));
     this.view.offerSelectView.addEventListener('change', this.onOfferSelectViewChange.bind(this));
 
-    this.model.addEventListener('mode', this.onModelMode.bind(this));
+    this.model.addEventListener('mode', this.activeModelMode.bind(this));
     this.view.addEventListener('reset', this.onViewReset.bind(this));
     this.view.addEventListener('close', this.onViewClose.bind(this));
     this.view.addEventListener('submit', this.onViewSubmit.bind(this));
@@ -185,7 +185,7 @@ export default class InitiatePresenter extends Presenter {
     this.model.activePoint.offerIds = offerIds;
   }
 
-  onModelMode() {
+  activeModelMode() {
     this.view.close(false);
 
     if (this.model.getMode() === Mode.CREATE) {
