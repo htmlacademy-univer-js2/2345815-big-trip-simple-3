@@ -1,5 +1,5 @@
 import Adapter from './adapter.js';
-import OfferAdapter from './offerAdapter.js';
+import OfferAdapter from './offer-adapter.js';
 
 export default class OfferGroups extends Adapter {
   /**

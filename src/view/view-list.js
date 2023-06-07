@@ -1,5 +1,5 @@
 import View from './view.js';
-import ViewPoint from './viewPoint.js';
+import ViewPoint from './view-point.js';
 
 export default class ListView extends View {
   constructor() {

@@ -1,8 +1,8 @@
-import DeleteLabelButton from '../enum/deleteLabelButton.js';
-import SaveLabelButton from '../enum/saveLabelButtom.js';
+import DeleteLabelButton from '../enum/delete-label-button.js';
+import SaveLabelButton from '../enum/save-label-buttom.js';
 
 import {html} from './view.js';
-import CreateView from './createView.js';
+import CreateView from './create-view.js';
 
 export default class EditorView extends CreateView {
   constructor() {

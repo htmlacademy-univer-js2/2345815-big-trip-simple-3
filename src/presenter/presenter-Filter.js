@@ -1,7 +1,7 @@
 import Mode from '../enum/mode.js';
-import TypeArrange from '../enum/typeArrange.js';
-import ArrangeLabel from '../enum/arrangeLabel.js';
-import PredicateArrange from '../enum/PredicateArrange.js';
+import TypeArrange from '../enum/type-arrange.js';
+import ArrangeLabel from '../enum/arrange-label.js';
+import PredicateArrange from '../enum/predicate-arrange.js';
 import Presenter from './presenter.js';
 
 /**
@@ -19,7 +19,7 @@ export default class PresenterFilter extends Presenter {
     this.buildView();
 
     this.view.addEventListener('change', this.onViewChange.bind(this));
-    this.model.addEventListener('mode', this.onModelMode.bind(this));
+    this.model.addEventListener('mode', this.activeModelMode.bind(this));
 
     this.model.pointsModel.addEventListener(
       ['add', 'remove', 'update'],
@@ -65,7 +65,7 @@ export default class PresenterFilter extends Presenter {
     this.updateViewOptionsDisabled();
   }
 
-  onModelMode() {
+  activeModelMode() {
     if (this.model.getMode() === Mode.CREATE) {
       this.model.pointsModel.setFilter(PredicateArrange.EVERYTHING);
 

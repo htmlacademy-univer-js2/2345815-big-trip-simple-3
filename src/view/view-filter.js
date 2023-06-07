@@ -1,4 +1,4 @@
-import ViewGroup, {html} from './viewGroup.js';
+import ViewGroup, {html} from './view-group.js';
 
 export default class FilterView extends ViewGroup {
   /**

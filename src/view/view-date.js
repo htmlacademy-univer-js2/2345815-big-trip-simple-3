@@ -1,6 +1,6 @@
 import 'flatpickr/dist/flatpickr.min.css';
 
-import KeyInput from '../enum/keyInput.js';
+import KeyInput from '../enum/key-input.js';
 import initCalendar from 'flatpickr';
 import View, {html} from './view.js';
 
