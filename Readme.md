@@ -1,7 +1,7 @@
 # Проект «Большое путешествие (простой)»
 
-* Студент: [Кристина Янович](https://up.htmlacademy.ru/ecmascript/18/user/1990183).
-* Наставник: [Александр Конотоп](https://htmlacademy.ru/profile/id2123489).
+* Студент: [Севдат Туфаногуллары](https://up.htmlacademy.ru/univer-js2/3/user/2345815).
+* Наставник: `Владимир Шишлянников`.
 
 ---
 
@@ -48,5 +48,5 @@ git clone SSH-адрес_вашего_форка
 
 Репозиторий создан для обучения на профессиональном курсе «[JavaScript. Архитектура клиентских приложений](https://htmlacademy.ru/intensive/ecmascript)» от [HTML Academy](https://htmlacademy.ru).
 
-[check-image]: https://github.com/htmlacademy-ecmascript/1990183-big-trip-simple-18/workflows/Project%20check/badge.svg?branch=master
-[check-url]: https://github.com/htmlacademy-ecmascript/1990183-big-trip-simple-18/actions
+[check-image]: https://github.com/htmlacademy-ecmascript/2345815-big-trip-simple-3/workflows/Project%20check/badge.svg?branch=master
+[check-url]: https://github.com/htmlacademy-ecmascript/2345815-big-trip-simple-3/actions
